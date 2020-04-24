@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "learning project",
   "type": "module",
-  "main": "",
+  "main": "src/index.js",
   "bin": {
     "brain-games": "./brain-games.js"
   }
