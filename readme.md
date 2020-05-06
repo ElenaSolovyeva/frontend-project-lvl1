@@ -1,30 +1,10 @@
-#Моя шпаргалка
 
-## Командная строка
-Создание файла: а```touch <filename>а```;  
-Путь к папке проектов ```/mnt/c/Projects```
+# бейджик Maintainability
 
-## Настройка npm
-## package.json
-* Добавила```"type": "module", ```  
-Настройка окружения → NPM:  
-*Обратите внимание на секцию "type" в JSON выше. Эту часть нужно добавить самостоятельно исправив файл. Без нее не будут работать импорты*
+## Markdown
+[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-* Исправила ```"main": "",```
-чтобы этот файл стал точкой входа
-
-* Добавила  ```"bin": {"brain-games": "./brain-games.js"}```
-чтобы запускать из командной строки
-
-$ npx eslint --init
-$ npx eslint .
-$ npx <тут любая программа, установленная как локальный пакет NPM> <тут опции этой программы>
-
-Эта утилита меняет $PATH для конкретного вызова, добавляя туда путь ./node_modules/.bin. Именно поэтому начинают работать локально установленные программы.
-
-"scripts": {
-  ...
-  "sloc": "sloc",
-  ...
-}
-Имя свойства используется как команда в командной строке, значение — исполняемая программа. Теперь, если вы попробуете сделать так: npm run sloc, то все отработает как и ожидается.
+## html
+<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability">
+  <img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" />
+</a>

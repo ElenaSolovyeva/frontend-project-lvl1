@@ -4,3 +4,5 @@ import {startDialog} from '../src/cli.js';
 console.log('Welcome to the Brain Games!');
 
 startDialog();
+
+var a = 1;
