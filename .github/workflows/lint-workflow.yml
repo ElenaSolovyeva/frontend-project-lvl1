@@ -1,0 +1,46 @@
+# Name of workflow
+name: Check with Eslint
+
+# Trigger the workflow on push or pull request
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+
+    # The type of machine to run the job on
+    runs-on: ubuntu-latest
+    # в спецификации
+    # https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
+    # вот это не понятно:
+    # "For example, you can use ubuntu-latest to specify
+    # the latest version of an Ubuntu GitHub-hosted runner."
+    # runs-on: ubuntu-latest
+    # Что такое "an Ubuntu GitHub-hosted runner"?
+
+    # Configuring a build matrix
+    strategy:
+      matrix:
+      # Node versions list
+        node-version: [13.x]
+
+    steps:
+        # Check out repository under Github workspace
+        # https://github.com/actions/setup-node
+      - uses: actions/checkout@v2
+
+        # Step's Name
+
+      - name: Use Node.js ${{matrix.node-version}}
+        # Configures the Node version used on Github-hosted runners
+        # https://github.com/actions/setup-node
+        uses: actions/setup-node@v1
+        # The Node.js version to configure
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: Run linter
+        # Run linter
+        run: |
+          make lint
