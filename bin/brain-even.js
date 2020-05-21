@@ -1,13 +1,7 @@
 #!/usr/bin/env node
 
-import {
-  startDialog,
-  playWithUser,
-} from '../src/cli.js';
+import playWithUser from '../games/index.js';
 
+import { gameRules, generateQuestion, getRightAnswer } from '../games/brain-even-features.js';
 
-console.log('Welcome to the Brain Games!');
-startDialog();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-playWithUser(3);
+playWithUser(gameRules, generateQuestion, getRightAnswer);
