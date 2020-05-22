@@ -2,6 +2,8 @@ const signes = ['+', '-', '*'];
 
 const gameRules = 'What is the result of the expression?';
 
+const printRules = () => (console.log(gameRules));
+
 function getRandomInt(minimum, maximum) {
   const min = Math.ceil(minimum);
   const max = Math.floor(maximum);
@@ -41,4 +43,4 @@ const getRightAnswer = (question) => {
 };
 
 
-export { gameRules, generateQuestion, getRightAnswer };
+export { printRules, generateQuestion, getRightAnswer };

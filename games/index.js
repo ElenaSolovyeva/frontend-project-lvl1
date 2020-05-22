@@ -1,7 +1,6 @@
 // #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-// import * as even from './brain-even-features.js';
 
 let userName;
 const n = 3; // У игрока n попыток
@@ -17,13 +16,13 @@ const generateFeedbackByMistake = (rightAnswer, userAnswer) => {
 };
 
 
-const playWithUser = (gameRules, generateQuestion, getRightAnswer) => {
+const playWithUser = (printRules, generateQuestion, getRightAnswer) => {
   const result = true;
   let userAnswer;
 
   console.log('Welcome to the Brain Games!');
   startDialog();
-  console.log(gameRules);
+  printRules();
 
   for (let i = 1; i <= n; i += 1) {
     const question = generateQuestion();
@@ -46,3 +45,5 @@ const playWithUser = (gameRules, generateQuestion, getRightAnswer) => {
 };
 
 export default playWithUser;
+
+export { startDialog };

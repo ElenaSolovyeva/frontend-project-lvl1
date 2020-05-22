@@ -2,6 +2,6 @@
 
 import playWithUser from '../games/index.js';
 
-import { gameRules, generateQuestion, getRightAnswer } from '../games/brain-gcd-features.js';
+import { printRules, generateQuestion, getRightAnswer } from '../games/brain-gcd-features.js';
 
-playWithUser(gameRules, generateQuestion, getRightAnswer);
+playWithUser(printRules, generateQuestion, getRightAnswer);

@@ -2,6 +2,8 @@ let numbers = [];
 
 const gameRules = 'Find the greatest common divisor of given numbers.';
 
+const printRules = () => (console.log(gameRules));
+
 const generateQuestion = () => {
   // Обнуляем массив с числами перед тем, как сгенерировать новый вопрос
   numbers = [];
@@ -35,4 +37,4 @@ const findGCD = (items) => {
 
 const getRightAnswer = () => (findGCD(numbers));
 
-export { gameRules, generateQuestion, getRightAnswer };
+export { printRules, generateQuestion, getRightAnswer };

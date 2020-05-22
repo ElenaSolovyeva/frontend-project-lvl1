@@ -5,6 +5,8 @@ const map = {
 
 const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
+const printRules = () => (console.log(gameRules));
+
 const isEven = (number) => (number % 2 === 0);
 
 const generateQuestion = () => Math.floor(100 * Math.random());
@@ -19,4 +21,4 @@ const getRightAnswer = (question) => {
 };
 
 
-export { gameRules, generateQuestion, getRightAnswer };
+export { printRules, generateQuestion, getRightAnswer };
