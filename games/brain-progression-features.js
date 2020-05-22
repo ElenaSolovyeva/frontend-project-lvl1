@@ -4,12 +4,12 @@ let actuallyProgression = []; // is changed by generateQuestion()
 let unknownIndex; // is changed by generateQuestion()
 
 const styles = [
-  'font-weight: normal;',
-  'font-weight: bold;',
-  'font-weight: normal;',
+  'color: black',
+  'color: orange',
+  'color: black',
 ];
 
-const printRules = () => (console.log('%c What number is missing %c in %c the progression?', styles[0], styles[1], styles[2]));
+const printRules = () => (console.log('%cWhat number is missing %cin %cthe progression?', styles[0], styles[1], styles[2]));
 
 function getRandomInt(minimum, maximum) {
   const min = Math.ceil(minimum);
