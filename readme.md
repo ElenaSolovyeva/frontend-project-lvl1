@@ -15,3 +15,6 @@ brain-even:
 
  brain-progression:
  https://asciinema.org/a/9RepYC7BTIK88WmeK8I3PB4bk
+
+ brain-prime:
+ https://asciinema.org/a/H4UJscOg3Zg5Vl3yRKOW1fSlx
