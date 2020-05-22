@@ -1,38 +1,45 @@
-// const n = 10; // Количество членов прогрессии
-//
-// const gameRules = 'What number is missing' + '\'in' + 'the progression?';
-//
-// const generateQuestion = () => {
-//   // Обнуляем массив с числами перед тем, как сгенерировать новый вопрос
-//   numbers = [];
-//
-//   const firstRandomNumber = Math.floor(100 * Math.random()) + 1;
-//   numbers.push(firstRandomNumber);
-//   const secondRandomNumber = Math.floor(100 * Math.random()) + 1;
-//   numbers.push(secondRandomNumber);
-//
-//   return `${firstRandomNumber} ${secondRandomNumber}`;
-// };
-//
-// const findGCD = (items) => {
-//   let result;
-//
-//   let [first, second] = items;
-//   first = parseInt(first, 10);
-//   first = Math.abs(first);
-//   second = parseInt(second, 10);
-//   second = Math.abs(second);
-//   const min = Math.min(Math.abs(first), Math.abs(second));
-//
-//   for (let i = 0; i < min; i += 1) {
-//     if (first % (min - i) === 0 && second % (min - i) === 0) {
-//       result = min - i;
-//       break;
-//     }
-//   }
-//   return result.toString(10);
-// };
-//
-// const getRightAnswer = () => (findGCD(numbers));
-//
-// export { gameRules, generateQuestion, getRightAnswer };
+const n = 10; // Количество членов прогрессии
+
+let actuallyProgression = []; // is changed by generateQuestion()
+let unknownIndex; // is changed by generateQuestion()
+
+const styles = [
+  'font-weight: normal;',
+  'font-weight: bold;',
+  'font-weight: normal;',
+];
+
+const printRules = () => (console.log('%c What number is missing %c in %c the progression?', styles[0], styles[1], styles[2]));
+
+function getRandomInt(minimum, maximum) {
+  const min = Math.ceil(minimum);
+  const max = Math.floor(maximum);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const generateProgression = (progressionLength) => {
+  const progression = [];
+
+  const first = getRandomInt(1, 6); // пусть 1й член прогрессии будет небольшим числом
+  const step = getRandomInt(1, 6); // пусть шаг прогрессии будет небольшим
+
+  for (let i = 0; i < progressionLength; i += 1) {
+    progression[i] = first + i * step;
+  }
+
+  return progression;
+};
+
+const generateQuestion = () => {
+  unknownIndex = getRandomInt(0, n - 1);
+  actuallyProgression = generateProgression(n);
+
+  const progressionWithUnknownMember = [...actuallyProgression];
+  progressionWithUnknownMember[unknownIndex] = '..';
+
+  return progressionWithUnknownMember;
+};
+
+const getRightAnswer = () => (actuallyProgression[unknownIndex]);
+
+export { printRules, generateQuestion, getRightAnswer };
