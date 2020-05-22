@@ -40,6 +40,6 @@ const generateQuestion = () => {
   return progressionWithUnknownMember;
 };
 
-const getRightAnswer = () => (actuallyProgression[unknownIndex]);
+const getRightAnswer = () => (String(actuallyProgression[unknownIndex]));
 
 export { printRules, generateQuestion, getRightAnswer };

@@ -4,11 +4,14 @@
 
 Description of installing and running the games:
 
-Brain-even:
+brain-even:
  https://asciinema.org/a/pgcQfObbvKwp70z44m0BzgLWZ
 
- Brain-calc:
+ brain-calc:
  https://asciinema.org/a/nI4PG3w0FWucoiTAaA3svRFvH
 
- Brain-gcd:
+ brain-gcd:
  https://asciinema.org/a/RGGiBYWv4QiXrcSDyxP7XTGjV
+
+ brain-progression:
+ https://asciinema.org/a/9RepYC7BTIK88WmeK8I3PB4bk
