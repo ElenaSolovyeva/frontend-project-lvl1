@@ -2,5 +2,11 @@
 
 ![](https://github.com/ElenaSolovyeva/frontend-project-lvl1/workflows/Check%20with%20Eslint/badge.svg)
 
-Description of installing and running the game is at this link:
+Description of installing and running the games:
+
+Brain-even:
  https://asciinema.org/a/pgcQfObbvKwp70z44m0BzgLWZ
+
+ Brain-calc:
+ https://asciinema.org/a/nI4PG3w0FWucoiTAaA3svRFvH
+ 

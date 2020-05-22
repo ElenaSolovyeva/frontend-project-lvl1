@@ -11,7 +11,7 @@ function getRandomInt(minimum, maximum) {
 const generateQuestion = () => {
   const firstRandomNumber = Math.floor(100 * Math.random());
   const secondRandomNumber = Math.floor(100 * Math.random());
-  const randomSign = signes[getRandomInt(0, 2)];
+  const randomSign = signes[getRandomInt(0, signes.length)];
   return `${firstRandomNumber} ${randomSign} ${secondRandomNumber}`;
 };
 
