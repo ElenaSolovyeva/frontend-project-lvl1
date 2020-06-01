@@ -1,34 +1,25 @@
-let number = null;
+import { getRandomInt, isPrime } from './util.js';
 
-const styles = {
-  normal: 'color: black',
-  pink: 'color: #d14',
-  bold: 'font-weight: bold',
-};
+const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
-const printRules = () => (console.log('%cAnswer %c"yes" %cif %cgiven number is prime. Otherwise answer %c"no"',
-  styles.normal, styles.pink, styles.bold, styles.normal, styles.pink));
 
-const generateQuestion = () => {
-  number = Math.floor(Math.random() * 200);
-  return number;
-};
+const generateOptions = () => {
+  const result = {};
 
-const isPrime = (num) => {
-  const maxDevider = Math.floor(Math.sqrt(num));
-  for (let devider = 2; devider <= maxDevider; devider += 1) {
-    if (num % devider === 0) {
-      return false;
-    }
+  result.question = getRandomInt(0, 100);
+
+  const writeBooleanAnswer = isPrime(result.question);
+
+  switch (writeBooleanAnswer) {
+    case (true):
+      result.answer = 'yes';
+      break;
+    default:
+      result.answer = 'no';
   }
-  return true;
+
+  return result;
 };
 
-const getRightAnswer = () => {
-  if (isPrime(number)) {
-    return 'yes';
-  }
-  return 'no';
-};
 
-export { printRules, generateQuestion, getRightAnswer };
+export { gameRules, generateOptions };

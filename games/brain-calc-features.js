@@ -1,46 +1,37 @@
-const signes = ['+', '-', '*'];
+import { getRandomInt } from './util.js';
+
+const operators = ['+', '-', '*'];
 
 const gameRules = 'What is the result of the expression?';
 
-const printRules = () => (console.log(gameRules));
+const generateOptions = () => {
+  let answer;
+  const result = {};
 
-function getRandomInt(minimum, maximum) {
-  const min = Math.ceil(minimum);
-  const max = Math.floor(maximum);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+  const firstRandomNumber = getRandomInt(0, 100);
+  const secondRandomNumber = getRandomInt(0, 100);
+  const randomOperator = operators[getRandomInt(0, operators.length)];
 
-const generateQuestion = () => {
-  const firstRandomNumber = Math.floor(100 * Math.random());
-  const secondRandomNumber = Math.floor(100 * Math.random());
-  const randomSign = signes[getRandomInt(0, signes.length)];
-  return `${firstRandomNumber} ${randomSign} ${secondRandomNumber}`;
-};
+  result.question = `${firstRandomNumber} ${randomOperator} ${secondRandomNumber}`;
 
-
-const getRightAnswer = (question) => {
-  let result;
-  const items = question.split(' ');
-  const firstNumber = parseInt(items[0], 10);
-  const secondNumber = parseInt(items[2], 10);
-  const sign = items[1];
-
-  switch (sign) {
+  switch (randomOperator) {
     case ('+'):
-      result = firstNumber + secondNumber;
+      answer = firstRandomNumber + secondRandomNumber;
       break;
     case ('-'):
-      result = firstNumber - secondNumber;
+      answer = firstRandomNumber - secondRandomNumber;
       break;
     case ('*'):
-      result = firstNumber * secondNumber;
+      answer = firstRandomNumber * secondRandomNumber;
       break;
     default:
-      console.log('Error: sign is undefined');
+      console.log('Error: operator is undefined');
   }
 
-  return result.toString(10);
+  result.answer = answer.toString();
+
+  return result;
 };
 
 
-export { printRules, generateQuestion, getRightAnswer };
+export { gameRules, generateOptions };

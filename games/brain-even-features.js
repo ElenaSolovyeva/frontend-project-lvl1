@@ -1,24 +1,24 @@
-const map = {
-  yes: true,
-  no: false,
-};
+import { getRandomInt, isEven } from './util.js';
 
 const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const printRules = () => (console.log(gameRules));
 
-const isEven = (number) => (number % 2 === 0);
+const generateOptions = () => {
+  const result = {};
+  result.question = getRandomInt(0, 100);
 
-const generateQuestion = () => Math.floor(100 * Math.random());
+  const writeBooleanAnswer = isEven(result.question);
 
-const getRightAnswer = (question) => {
-  const writeBooleanAnswer = isEven(question);
+  switch (writeBooleanAnswer) {
+    case (true):
+      result.answer = 'yes';
+      break;
+    default:
+      result.answer = 'no';
+  }
 
-  // Находим в map ключ по значению и возвращаем его
-  const keys = Object.keys(map);
-  const value = keys.find((key) => (map[key] === writeBooleanAnswer));
-  return value;
+  return result;
 };
 
 
-export { printRules, generateQuestion, getRightAnswer };
+export { gameRules, generateOptions };
