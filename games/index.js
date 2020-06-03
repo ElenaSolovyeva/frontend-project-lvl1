@@ -2,14 +2,13 @@
 
 import readlineSync from 'readline-sync';
 
-let userName;
-
 const startDialog = () => {
-  userName = readlineSync.question('May I have your name,  my dear? ');
+  const userName = readlineSync.question('May I have your name,  my dear? ');
   console.log(`Hi, ${userName}`);
+  return userName;
 };
 
-const displayFeedbackByMismatch = (rightAnswer, userAnswer) => {
+const displayFeedbackByMismatch = (userName, rightAnswer, userAnswer) => {
   console.log(`"${userAnswer}" is a wrong answer ;(. Correct answer was "${rightAnswer}"`);
   console.log(`Let's try again, ${userName}!`);
 };
@@ -19,7 +18,7 @@ const playWithUser = (gameRules, generateOptions) => {
   const attemptsNumber = 3;
 
   console.log('Welcome to the Brain Games!');
-  startDialog();
+  const userName = startDialog();
   console.log(gameRules);
 
   for (let i = 1; i <= attemptsNumber; i += 1) {
@@ -29,7 +28,7 @@ const playWithUser = (gameRules, generateOptions) => {
     userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer !== gameOptions.answer) {
-      return displayFeedbackByMismatch(gameOptions.answer, userAnswer);
+      return displayFeedbackByMismatch(userName, gameOptions.answer, userAnswer);
     }
 
     console.log('Correct!');
