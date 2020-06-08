@@ -1,4 +1,4 @@
-// #!/usr/bin/env node
+#!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
 
@@ -8,10 +8,10 @@ const startDialog = () => {
   return userName;
 };
 
-const displayFeedbackByMismatch = (userName, rightAnswer, userAnswer) => {
-  console.log(`"${userAnswer}" is a wrong answer ;(. Correct answer was "${rightAnswer}"`);
-  console.log(`Let's try again, ${userName}!`);
-};
+const onWin = (userName) => console.log(`Congratulations, ${userName}!`);
+
+const displayFeedbackOnError = (userName, rightAnswer, userAnswer) => console.log(`"${userAnswer}" is a wrong answer ;(. Correct answer was "${rightAnswer}"
+Let's try again, ${userName}!`);
 
 const playWithUser = (gameRules, generateOptions) => {
   let userAnswer;
@@ -28,16 +28,16 @@ const playWithUser = (gameRules, generateOptions) => {
     userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer !== gameOptions.answer) {
-      return displayFeedbackByMismatch(userName, gameOptions.answer, userAnswer);
+      return displayFeedbackOnError(userName, gameOptions.answer, userAnswer);
+      // return здесь нужен, чтобы прервать выполнение функции
+      // и не выводить `Congratulations, ${userName}!`
     }
 
     console.log('Correct!');
   }
 
   // Выводим в консоль результат при выигрыше
-  console.log(`Congratulations, ${userName}!`);
-
-  return true; // Без return линтер ругается, а этот return вроде ничему не мешает
+  return onWin(userName);
 };
 
 export default playWithUser;

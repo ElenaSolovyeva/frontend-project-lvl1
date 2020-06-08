@@ -1,4 +1,4 @@
-import { getRandomInt } from './util.js';
+import { getRandomInt } from '../util.js';
 
 const operators = ['+', '-', '*'];
 
@@ -13,17 +13,17 @@ const generateOptions = () => {
     case ('+'):
       return {
         question: `${firstRandomNumber} + ${secondRandomNumber}`,
-        answer: (firstRandomNumber + secondRandomNumber).toString(),
+        answer: `${firstRandomNumber + secondRandomNumber}`,
       };
     case ('-'):
       return {
         question: `${firstRandomNumber} - ${secondRandomNumber}`,
-        answer: (firstRandomNumber - secondRandomNumber).toString(),
+        answer: `${firstRandomNumber - secondRandomNumber}`,
       };
     case ('*'):
       return {
         question: `${firstRandomNumber} * ${secondRandomNumber}`,
-        answer: (firstRandomNumber * secondRandomNumber).toString(),
+        answer: `${firstRandomNumber * secondRandomNumber}`,
       };
     default:
       return ('Error: operator is undefined');

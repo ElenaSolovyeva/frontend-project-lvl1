@@ -21,9 +21,9 @@ const findGCD = (first, second) => {
 };
 
 const isPrime = (num) => {
-  const maxDevisor = Math.floor(Math.sqrt(num));
-  for (let devisor = 2; devisor <= maxDevisor; devisor += 1) {
-    if (num % devisor === 0) {
+  const maxDevider = Math.floor(Math.sqrt(num));
+  for (let devider = 2; devider <= maxDevider; devider += 1) {
+    if (num % devider === 0) {
       return false;
     }
   }
@@ -46,23 +46,3 @@ const generateProgression = (progressionLength) => {
 export {
   getRandomInt, isEven, findGCD, isPrime, generateProgression,
 };
-
-
-// const findGCD = (items) => {
-//   let result;
-//
-//   let [first, second] = items;
-//   first = parseInt(first, 10);
-//   first = Math.abs(first);
-//   second = parseInt(second, 10);
-//   second = Math.abs(second);
-//   const min = Math.min(Math.abs(first), Math.abs(second));
-//
-//   for (let i = 0; i < min; i += 1) {
-//     if (first % (min - i) === 0 && second % (min - i) === 0) {
-//       result = min - i;
-//       break;
-//     }
-//   }
-//   return result.toString(10);
-// };

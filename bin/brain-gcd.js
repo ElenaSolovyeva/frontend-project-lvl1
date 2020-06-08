@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import playWithUser from '../games/index.js';
+import playWithUser from '../src/index.js';
 
-import { gameRules, generateOptions } from '../games/brain-gcd-features.js';
+import { gameRules, generateOptions } from '../src/games/brain-gcd-features.js';
 
 playWithUser(gameRules, generateOptions);
