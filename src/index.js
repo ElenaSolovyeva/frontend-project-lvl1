@@ -28,16 +28,18 @@ const playWithUser = (gameRules, generateOptions) => {
     userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer !== gameOptions.answer) {
-      return displayFeedbackOnError(userName, gameOptions.answer, userAnswer);
-      // return здесь нужен, чтобы прервать выполнение функции
-      // и не выводить `Congratulations, ${userName}!`
+      displayFeedbackOnError(userName, gameOptions.answer, userAnswer);
+      return;
+      // https://eslint.org/docs/rules/consistent-return
+      // This rule requires return statements to either always or never specify values.
+      // Если здесь ничего не возвращаем, то и в 42й строке тоже ничего не надо возвращать
+      // (return не нужен).
     }
 
     console.log('Correct!');
   }
 
-  // Выводим в консоль результат при выигрыше
-  return onWin(userName);
+  onWin(userName); // Выводим в консоль результат при выигрыше
 };
 
 export default playWithUser;
