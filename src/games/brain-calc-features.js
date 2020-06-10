@@ -4,7 +4,7 @@ const operators = ['+', '-', '*'];
 
 const gameRules = 'What is the result of the expression?';
 
-const generateOptions = () => {
+const generateRound = () => {
   const firstRandomNumber = getRandomInt(0, 100);
   const secondRandomNumber = getRandomInt(0, 100);
   const randomOperator = operators[getRandomInt(0, operators.length)];
@@ -30,4 +30,4 @@ const generateOptions = () => {
   }
 };
 
-export { gameRules, generateOptions };
+export { gameRules, generateRound };

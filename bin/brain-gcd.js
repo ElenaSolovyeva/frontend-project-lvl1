@@ -2,6 +2,6 @@
 
 import playWithUser from '../src/index.js';
 
-import { gameRules, generateOptions } from '../src/games/brain-gcd-features.js';
+import { gameRules, generateRound } from '../src/games/brain-gcd-features.js';
 
-playWithUser(gameRules, generateOptions);
+playWithUser(gameRules, generateRound);

@@ -1,8 +1,8 @@
-#!/usr/bin/env node
+// #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
 
-const startDialog = () => {
+const getUserName = () => {
   const userName = readlineSync.question('May I have your name,  my dear? ');
   console.log(`Hi, ${userName}`);
   return userName;
@@ -13,16 +13,16 @@ const onWin = (userName) => console.log(`Congratulations, ${userName}!`);
 const displayFeedbackOnError = (userName, rightAnswer, userAnswer) => console.log(`"${userAnswer}" is a wrong answer ;(. Correct answer was "${rightAnswer}"
 Let's try again, ${userName}!`);
 
-const playWithUser = (gameRules, generateOptions) => {
+const playWithUser = (gameRules, generateRound) => {
   let userAnswer;
   const attemptsNumber = 3;
 
   console.log('Welcome to the Brain Games!');
-  const userName = startDialog();
+  const userName = getUserName();
   console.log(gameRules);
 
   for (let i = 1; i <= attemptsNumber; i += 1) {
-    const gameOptions = generateOptions();
+    const gameOptions = generateRound();
     console.log(`Question: ${gameOptions.question}`);
 
     userAnswer = readlineSync.question('Your answer: ');
@@ -44,4 +44,4 @@ const playWithUser = (gameRules, generateOptions) => {
 
 export default playWithUser;
 
-export { startDialog };
+export { getUserName };

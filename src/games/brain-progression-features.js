@@ -1,18 +1,20 @@
-import { getRandomInt, generateProgression } from '../util.js';
+import { getRandomInt } from '../util.js';
 
 const gameRules = ('What number is missing in the progression?');
 
-const progressionLength = 10;
+const generateRound = () => {
+  const first = getRandomInt(1, 6); // пусть 1й член прогрессии будет небольшим числом
+  const step = getRandomInt(1, 6); // пусть шаг прогрессии будет небольшим
+  const progressionLength = 10;
+  const randomIndex = getRandomInt(0, progressionLength - 1);
+  const progression = Array.from(Array(progressionLength),
+    (item, index) => (first + index * (1 + step)));
 
-const generateOptions = () => {
-  const progression = generateProgression(progressionLength);
-  const unknownIndex = getRandomInt(0, progressionLength - 1);
+  const question = progression.map((current, index) => ((index === randomIndex) ? '..' : current));
 
-  const question = progression.map((current, index) => ((index === unknownIndex) ? '..' : current));
-
-  const answer = `${progression[unknownIndex]}`;
+  const answer = `${progression[randomIndex]}`;
 
   return { question, answer };
 };
 
-export { gameRules, generateOptions };
+export { gameRules, generateRound };

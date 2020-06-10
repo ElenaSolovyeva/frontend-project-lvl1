@@ -21,28 +21,15 @@ const findGCD = (first, second) => {
 };
 
 const isPrime = (num) => {
-  const maxDevider = Math.floor(Math.sqrt(num));
-  for (let devider = 2; devider <= maxDevider; devider += 1) {
-    if (num % devider === 0) {
+  const maxDivisor = Math.floor(Math.sqrt(num));
+  for (let divisor = 2; divisor <= maxDivisor; divisor += 1) {
+    if (num % divisor === 0) {
       return false;
     }
   }
   return true;
 };
 
-const generateProgression = (progressionLength) => {
-  const progression = [];
-
-  const first = getRandomInt(1, 6); // пусть 1й член прогрессии будет небольшим числом
-  const step = getRandomInt(1, 6); // пусть шаг прогрессии будет небольшим
-
-  for (let i = 0; i < progressionLength; i += 1) {
-    progression[i] = first + i * step;
-  }
-
-  return progression;
-};
-
 export {
-  getRandomInt, isEven, findGCD, isPrime, generateProgression,
+  getRandomInt, isEven, findGCD, isPrime,
 };
