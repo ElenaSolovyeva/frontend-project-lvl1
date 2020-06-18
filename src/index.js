@@ -1,18 +1,18 @@
 import readlineSync from 'readline-sync';
 
-const getUserName = () => {
+const requestUserName = () => {
   const userName = readlineSync.question('May I have your name,  my dear? ');
   console.log(`Hi, ${userName}`);
   return userName;
 };
 
-const playWithUser = (gameRule, generateRound) => {
+const playWithUser = (gameDescription, generateRound) => {
   let userAnswer;
   const attemptsNumber = 3;
 
   console.log('Welcome to the Brain Games!');
-  const userName = getUserName();
-  console.log(gameRule);
+  const userName = requestUserName();
+  console.log(gameDescription);
 
   for (let i = 1; i <= attemptsNumber; i += 1) {
     const gameOptions = generateRound();
@@ -38,4 +38,4 @@ Let's try again, ${userName}!`);
 
 export default playWithUser;
 
-export { getUserName };
+export { requestUserName };

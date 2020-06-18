@@ -2,6 +2,6 @@
 
 import playWithUser from '../src/index.js';
 
-import { gameRule, generateRound } from '../src/games/brain-calc-features.js';
+import { gameDescription, generateRound } from '../src/games/brain-calc-game.js';
 
-playWithUser(gameRule, generateRound);
+playWithUser(gameDescription, generateRound);

@@ -1,6 +1,6 @@
 import getRandomInt from '../util.js';
 
-const gameRule = ('What number is missing in the progression?');
+const gameDescription = ('What number is missing in the progression?');
 
 const generateRound = () => {
   const first = getRandomInt(1, 6); // пусть 1й член прогрессии будет небольшим числом
@@ -17,4 +17,4 @@ const generateRound = () => {
   return { question, answer };
 };
 
-export { gameRule, generateRound };
+export { gameDescription, generateRound };

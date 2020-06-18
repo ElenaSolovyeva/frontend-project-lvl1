@@ -2,7 +2,7 @@ import getRandomInt from '../util.js';
 
 const operators = ['+', '-', '*'];
 
-const gameRule = 'What is the result of the expression?';
+const gameDescription = 'What is the result of the expression?';
 
 const generateRound = () => {
   const firstRandomNumber = getRandomInt(0, 100);
@@ -30,4 +30,4 @@ const generateRound = () => {
   return { question, answer: `${answer}` };
 };
 
-export { gameRule, generateRound };
+export { gameDescription, generateRound };

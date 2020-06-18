@@ -1,6 +1,6 @@
 import getRandomInt from '../util.js';
 
-const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no"';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 
 const isPrime = (num) => {
   if (num < 2) {
@@ -23,4 +23,4 @@ const generateRound = () => {
 };
 
 
-export { gameRule, generateRound };
+export { gameDescription, generateRound };
