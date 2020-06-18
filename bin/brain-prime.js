@@ -2,6 +2,6 @@
 
 import playWithUser from '../src/index.js';
 
-import { gameRules, generateRound } from '../src/games/brain-prime-features.js';
+import { gameRule, generateRound } from '../src/games/brain-prime-features.js';
 
-playWithUser(gameRules, generateRound);
+playWithUser(gameRule, generateRound);

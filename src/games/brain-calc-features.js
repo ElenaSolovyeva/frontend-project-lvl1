@@ -1,33 +1,33 @@
-import { getRandomInt } from '../util.js';
+import getRandomInt from '../util.js';
 
 const operators = ['+', '-', '*'];
 
-const gameRules = 'What is the result of the expression?';
+const gameRule = 'What is the result of the expression?';
 
 const generateRound = () => {
   const firstRandomNumber = getRandomInt(0, 100);
   const secondRandomNumber = getRandomInt(0, 100);
   const randomOperator = operators[getRandomInt(0, operators.length)];
 
+  const question = `${firstRandomNumber} ${randomOperator} ${secondRandomNumber}`;
+
+  let answer;
+
   switch (randomOperator) {
     case ('+'):
-      return {
-        question: `${firstRandomNumber} + ${secondRandomNumber}`,
-        answer: `${firstRandomNumber + secondRandomNumber}`,
-      };
+      answer = firstRandomNumber + secondRandomNumber;
+      break;
     case ('-'):
-      return {
-        question: `${firstRandomNumber} - ${secondRandomNumber}`,
-        answer: `${firstRandomNumber - secondRandomNumber}`,
-      };
+      answer = firstRandomNumber - secondRandomNumber;
+      break;
     case ('*'):
-      return {
-        question: `${firstRandomNumber} * ${secondRandomNumber}`,
-        answer: `${firstRandomNumber * secondRandomNumber}`,
-      };
+      answer = firstRandomNumber * secondRandomNumber;
+      break;
     default:
-      return ('Error: operator is undefined');
+      return null;
   }
+
+  return { question, answer: `${answer}` };
 };
 
-export { gameRules, generateRound };
+export { gameRule, generateRound };

@@ -1,5 +1,3 @@
-// #!/usr/bin/env node
-
 import readlineSync from 'readline-sync';
 
 const getUserName = () => {
@@ -8,18 +6,13 @@ const getUserName = () => {
   return userName;
 };
 
-const onWin = (userName) => console.log(`Congratulations, ${userName}!`);
-
-const displayFeedbackOnError = (userName, rightAnswer, userAnswer) => console.log(`"${userAnswer}" is a wrong answer ;(. Correct answer was "${rightAnswer}"
-Let's try again, ${userName}!`);
-
-const playWithUser = (gameRules, generateRound) => {
+const playWithUser = (gameRule, generateRound) => {
   let userAnswer;
   const attemptsNumber = 3;
 
   console.log('Welcome to the Brain Games!');
   const userName = getUserName();
-  console.log(gameRules);
+  console.log(gameRule);
 
   for (let i = 1; i <= attemptsNumber; i += 1) {
     const gameOptions = generateRound();
@@ -28,7 +21,8 @@ const playWithUser = (gameRules, generateRound) => {
     userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer !== gameOptions.answer) {
-      displayFeedbackOnError(userName, gameOptions.answer, userAnswer);
+      console.log(`"${userAnswer}" is a wrong answer ;(. Correct answer was "${gameOptions.answer}"
+Let's try again, ${userName}!`);
       return;
       // https://eslint.org/docs/rules/consistent-return
       // This rule requires return statements to either always or never specify values.
@@ -39,7 +33,7 @@ const playWithUser = (gameRules, generateRound) => {
     console.log('Correct!');
   }
 
-  onWin(userName); // Выводим в консоль результат при выигрыше
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default playWithUser;
