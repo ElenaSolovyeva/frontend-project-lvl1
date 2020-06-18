@@ -1,4 +1,6 @@
+import playWithUser from '../index.js';
 import getRandomInt from '../util.js';
+
 
 const operators = ['+', '-', '*'];
 
@@ -30,4 +32,6 @@ const generateRound = () => {
   return { question, answer: `${answer}` };
 };
 
-export { gameDescription, generateRound };
+const startGame = () => playWithUser(gameDescription, generateRound);
+
+export default startGame;

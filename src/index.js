@@ -15,19 +15,15 @@ const playWithUser = (gameDescription, generateRound) => {
   console.log(gameDescription);
 
   for (let i = 1; i <= attemptsNumber; i += 1) {
-    const gameOptions = generateRound();
-    console.log(`Question: ${gameOptions.question}`);
+    const gameRound = generateRound();
+    console.log(`Question: ${gameRound.question}`);
 
     userAnswer = readlineSync.question('Your answer: ');
 
-    if (userAnswer !== gameOptions.answer) {
-      console.log(`"${userAnswer}" is a wrong answer ;(. Correct answer was "${gameOptions.answer}"
+    if (userAnswer !== gameRound.answer) {
+      console.log(`"${userAnswer}" is a wrong answer ;(. Correct answer was "${gameRound.answer}"
 Let's try again, ${userName}!`);
       return;
-      // https://eslint.org/docs/rules/consistent-return
-      // This rule requires return statements to either always or never specify values.
-      // Если здесь ничего не возвращаем, то и в 42й строке тоже ничего не надо возвращать
-      // (return не нужен).
     }
 
     console.log('Correct!');
