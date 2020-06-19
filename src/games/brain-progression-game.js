@@ -1,3 +1,4 @@
+import playWithUser from '../index.js';
 import getRandomInt from '../util.js';
 
 const gameDescription = ('What number is missing in the progression?');
@@ -17,4 +18,6 @@ const generateRound = () => {
   return { question, answer };
 };
 
-export { gameDescription, generateRound };
+const startGame = () => playWithUser(gameDescription, generateRound);
+
+export default startGame;

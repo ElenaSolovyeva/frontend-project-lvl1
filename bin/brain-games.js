@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import { requestUserName } from '../src/index.js';
+import startGame from '../src/games/brain-games-game.js';
 
-console.log('Welcome to the Brain Games!');
-
-requestUserName();
+startGame();
