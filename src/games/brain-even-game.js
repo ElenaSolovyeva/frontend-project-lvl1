@@ -1,3 +1,4 @@
+import playWithUser from '../index.js';
 import getRandomInt from '../util.js';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -10,4 +11,6 @@ const generateRound = () => {
   return { question, answer };
 };
 
-export { gameDescription, generateRound };
+const startGame = () => playWithUser(gameDescription, generateRound);
+
+export default startGame;
